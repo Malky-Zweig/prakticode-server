@@ -37,7 +37,7 @@
 // app.Run();
 using Microsoft.EntityFrameworkCore; // ודא שזה המרחב השמות הנכון
 using Microsoft.OpenApi.Models;
-
+using TodoApi;
 var builder = WebApplication.CreateBuilder(args);
 
 // הוספת DbContext
@@ -82,13 +82,13 @@ app.MapGet("/tasks", async (ToDoDbContext db) =>
     return await db.item.ToListAsync();
 })
 .WithName("GetAllTasks") // הוספת שם למסלול
-.Produces<List<item>>(StatusCodes.Status200OK); // הוספת תוצאה אפשרית
+.Produces<List<Item>>(StatusCodes.Status200OK); // הוספת תוצאה אפשרית
 
 // Route להוספת משימה
 app.MapPost("/tasks/{name}", async (ToDoDbContext db, string name) =>
 {
     
-   item item1=new item();
+   Item item1=new Item();
    item1.Name=name;
    item1.IsComplete=false;
 

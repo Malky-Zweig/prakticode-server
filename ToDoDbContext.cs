@@ -13,6 +13,8 @@ namespace TodoApi
             : base(options)
         {
         }
+                public DbSet<Item> item { get; set; } // הוספת DbSet עבור item
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.33-mysql"));
 
@@ -22,10 +24,10 @@ namespace TodoApi
                 .UseCollation("utf8mb4_0900_ai_ci")
                 .HasCharSet("utf8mb4");
 
-            modelBuilder.Entity<item>(entity =>
+            modelBuilder.Entity<Item>(entity =>
             {
                 entity.HasKey(e => e.Id).HasName("PRIMARY");
-                entity.ToTable("items");
+                entity.ToTable("item");
                 entity.Property(e => e.Name).HasMaxLength(100);
                 
             });
@@ -33,7 +35,6 @@ namespace TodoApi
             OnModelCreatingPartial(modelBuilder);
         }
 
-        public DbSet<item> items { get; set; } // הוספת DbSet עבור item
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
