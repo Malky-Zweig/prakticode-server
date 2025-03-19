@@ -36,8 +36,6 @@
 
 // app.Run();
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using TodoApi; // ודא שזה המרחב השמות הנכון
 using Microsoft.OpenApi.Models;
 
