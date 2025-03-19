@@ -33,7 +33,6 @@
 //     return Results.NoContent();
 // // });
 
-app.MapGet("/", () => "Hello World!");
 
 // app.Run();
 using Microsoft.EntityFrameworkCore;
@@ -78,6 +77,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API V1");
     c.RoutePrefix = string.Empty; // אם תרצה שה-Swagger UI יהיה בדף הראשי
 });
+app.MapGet("/", () => "Hello World!");
 
 // Route לשליפת כל המשימות
 app.MapGet("/tasks", async (ToDoDbContext db) =>
