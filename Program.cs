@@ -33,7 +33,7 @@
 //     return Results.NoContent();
 // // });
 
-// app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello World!");
 
 // app.Run();
 using Microsoft.EntityFrameworkCore;
