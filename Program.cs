@@ -35,8 +35,7 @@
 
 
 // app.Run();
-using Microsoft.EntityFrameworkCore;
-using TodoApi; // ודא שזה המרחב השמות הנכון
+using Microsoft.EntityFrameworkCore; // ודא שזה המרחב השמות הנכון
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
