@@ -25,7 +25,7 @@ namespace TodoApi
             modelBuilder.Entity<item>(entity =>
             {
                 entity.HasKey(e => e.Id).HasName("PRIMARY");
-                entity.ToTable("items")
+                entity.ToTable("items");
                 entity.Property(e => e.Name).HasMaxLength(100);
                 
             });
